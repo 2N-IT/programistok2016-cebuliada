@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
-  resources :answers
-  resources :questions
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  get 'admin/index'
+
+  resources :questions, only: [:index, :show] do
+    resources :answers, only: :index
+  end
+
+  resources :answers, only: [] do
+      get :valid, on: :member
+      get :invalid, on: :collection
+  end
+  mount ActionCable.server => '/cable'
 end
