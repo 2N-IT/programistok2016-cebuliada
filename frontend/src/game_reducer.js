@@ -1,8 +1,8 @@
 import * as Actions from './constants'
 
 const initialState = {
-  current_question: {title: 'currentquestion'},
-  current_answers: [{id: 1, title: '2', points: '22'}],
+  current_question: {},
+  current_answers: [],
   current_score: 0,
   valid_answers: [],
   invalid: { red: 0, blue: 0 },
@@ -52,7 +52,7 @@ export default function (state = initialState, action) {
       return (
         Object.assign({}, state,
           {
-            invalid: {red: 0, blue: 0}
+            invalid: { red: 0, blue: 0 }
           }
         )
       )
