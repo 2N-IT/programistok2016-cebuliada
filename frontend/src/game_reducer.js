@@ -27,14 +27,14 @@ export default function (state = initialState, action) {
       )
     case Actions.ADD_INVALID_ANSWER:
       return (
-          Object.assign({}, state,
-            {
-              invalid: Object.assign(
-                {},
-                state.invalid,
-                { [action.team]: state.invalid[action.team] + 1})
-            }
-          )
+        Object.assign({}, state,
+          {
+            invalid: Object.assign(
+              {},
+              state.invalid,
+              { [action.team]: state.invalid[action.team] + 1})
+          }
+        )
         )
     case Actions.ASSIGN_POINTS:
       return (

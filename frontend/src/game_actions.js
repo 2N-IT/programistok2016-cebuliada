@@ -12,7 +12,7 @@ export function addValidAnswer (answerId) {
 export function addInvalidAnswer (team) {
   return { type: Actions.ADD_INVALID_ANSWER, team }
 }
-
 export function assignPoints(team, points) {
   return { type: Actions.ASSIGN_POINTS, team, points }
 }
+

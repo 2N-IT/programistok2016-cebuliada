@@ -5,6 +5,8 @@ import { bindActionCreators } from 'redux'
 import Websockets from './../websockets'
 
 import Answer from './../components/Answer'
+import Score from './../components/Score'
+
 import Alert from 'react-s-alert';
 import 'react-s-alert/dist/s-alert-default.css';
 import 'react-s-alert/dist/s-alert-css-effects/slide.css';
@@ -17,6 +19,11 @@ class Game extends React.Component {
       <Websockets />
         <img className="logo" src="http://programistok.org/images/programistok.png"/>
         <h1 className='text-center'> Familiada </h1>
+        <Score
+          invalid={this.props.invalid}
+          score={this.props.score}
+          current_score={this.props.current_score}
+        />
         <div className="container">
           <div className="row">
             <div className="col-xs-12">
@@ -48,6 +55,9 @@ const mapStateToProps = (state) => (
   {
     question: state.current_question,
     answers: state.current_answers,
+    score: state.score,
+    invalid: state.invalid,
+    current_score: state.current_score,
   }
 )
 
