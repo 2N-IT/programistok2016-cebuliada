@@ -1,0 +1,20 @@
+.answers-js tr td {
+  opacity: 0;
+}
+.answers-js tr.valid td {
+  opacity: 1;
+}
+.invalid {
+  color: red;
+}
+.logo {
+  display: block;
+  margin: 20px auto;
+}
+.pagination {
+  display: block;
+  text-align: center
+}
+.pagination a {
+  margin: 0 10px;
+}
