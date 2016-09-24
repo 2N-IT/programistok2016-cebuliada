@@ -13,8 +13,8 @@
           = f.submit 'Zapodaj żart', class: 'btn btn-default'
         %h4.text-center
           Aktualna pula punktow:
-          %b.current-score 0
-        = link_to 'Przydziel pule', assign_score_path(team: 'blue'), class: 'btn btn-primary pull-left', remote: true
-        = link_to 'Przydziel pule', assign_score_path(team: 'red'), class: 'btn btn-danger pull-right', remote: true
+          = number_field_tag(:current_score, 0, disabled: true)
+        = link_to 'Przydziel pule', 'javascript:void(0)', class: 'btn btn-primary pull-left assign-score', data: {team: 'blue'}
+        = link_to 'Przydziel pule', 'javascript:void(0)', class: 'btn btn-danger pull-right assign-score', data: {team: 'red'}
         .clearfix
       = yield

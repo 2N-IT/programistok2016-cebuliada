@@ -1,5 +1,5 @@
 var answerId = <%= @answer.id %>
-var currentScore = $('.current-score')
+var currentScore = parseInt($('#current_score').val()) + parseInt(<%= @points %>)
 var scope = $('#answer_' + answerId)
 $('a', scope).addClass('disabled')
-currentScore.text(parseInt(currentScore.text()) + parseInt(<%= @points %>))
+$('#current_score').val(currentScore)
