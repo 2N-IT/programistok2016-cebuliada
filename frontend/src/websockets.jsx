@@ -32,6 +32,12 @@ class Websockets extends React.Component {
       },
     });
   }
+  shortlyHideQuestionTitle (){
+    document.getElementById('question-title').className = 'opacity0'
+    setTimeout( () => {
+      document.getElementById('question-title').className = ''
+    }, 5000)
+  }
   addCustomNotification(content) {
     Alert.info(content, { html: true });
   }
@@ -42,7 +48,10 @@ class Websockets extends React.Component {
   performAction = (data) => {
     switch (data.action) {
       case Actions.SET_ACTIVE_QUESTION:
-        return this.props.setActiveQuestion(data.question, data.answers)
+        return (
+          this.props.setActiveQuestion(data.question, data.answers),
+          this.shortlyHideQuestionTitle()
+        )
       case Actions.ADD_VALID_ANSWER:
         return this.props.addValidAnswer(data.answerId, data.points)
       case Actions.ADD_INVALID_ANSWER:

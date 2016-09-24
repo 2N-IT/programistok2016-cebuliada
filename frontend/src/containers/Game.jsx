@@ -27,7 +27,7 @@ class Game extends React.Component {
         <div className="container">
           <div className="row">
             <div className="col-xs-12">
-              <h3>{this.props.question.title}</h3>
+              <h3 id='question-title'>{this.props.question.title}</h3>
               <table className="table table-bordered">
                 <tbody className='answers-js'>
                   {this.props.answers.map(({id, title, points}) => {
