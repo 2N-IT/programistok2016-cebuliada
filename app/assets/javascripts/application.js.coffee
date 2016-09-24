@@ -5,13 +5,12 @@
 #= require turbolinks
 #= require_tree .
 
-localStorage.setItem('invalidRed', 0)
-localStorage.setItem('invalidBlue', 0)
 localStorage.setItem('scoreRed', 0)
 localStorage.setItem('scoreBlue', 0)
-localStorage.setItem('validAnswers', [])
 
 $( document ).on 'turbolinks:load', ->
+  localStorage.setItem('invalidRed', 0)
+  localStorage.setItem('invalidBlue', 0)
   $('.assign-score').on 'click' , ->
     team = $(this).data('team')
     points = $('#current_score').val()
@@ -22,9 +21,13 @@ $( document ).on 'turbolinks:load', ->
         points: points
 
   ['invalidRed', 'invalidBlue', 'scoreRed', 'scoreBlue'].map (field) ->
-    $("##{field}").text(localStorage.getItem(field))
+    $("b##{field}").text(localStorage.getItem(field))
 
   $(document).on 'storage-changed', ->
     ['invalidRed', 'invalidBlue', 'scoreRed', 'scoreBlue'].map (field) ->
-      $("##{field}").text(localStorage.getItem(field))
-
+      $("b##{field}").text(localStorage.getItem(field))
+    ['invalidRed', 'invalidBlue'].map (field) ->
+      if parseInt(localStorage.getItem(field)) == 3
+        $("a##{field}").addClass('disabled')
+      else
+        $("a##{field}").removeClass('disabled')

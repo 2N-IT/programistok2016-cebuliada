@@ -17,23 +17,27 @@
           .col-xs-4
             = link_to 'Przydziel pule', 'javascript:void(0)', class: 'btn btn-danger pull-right assign-score', data: {team: 'red'}
           = yield :next_question
-          = link_to 'pokaz wszystkie odpowiedzi', show_all_answers_path, class: 'btn btn-default', remote: true
+          %p.text-center
+            = link_to 'pokaz wszystkie odpowiedzi', show_all_answers_path, class: 'btn btn-default disabled', remote: true, id: 'show-all'
       .well.well-sm
         .row
-          .col-xs-6
+          .col-xs-6.text-left
             %p
               Wynik:
               %b#scoreBlue
             %p
               Błędne odpowiedzi:
               %b#invalidBlue
-          .col-xs-6
+            = link_to 'BŁAD DRUZYNY NIEBIESKIEJ', invalid_answers_path(team: 'blue'), remote: true, class: 'btn btn-primary', id: 'invalidBlue'
+
+          .col-xs-6.text-right
             %p
               Wynik:
               %b#scoreRed
             %p
               Błędne odpowiedzi:
               %b#invalidRed
+            = link_to 'BŁAD DRUZYNY CZERWONEJ', invalid_answers_path(team: 'red'), remote: true, class: 'btn btn-danger', id: 'invalidRed'
       = yield
       .well.well-sm
         = form_for :custom_notification, url: new_custom_notifications_path, remote: true, method: :get do |f|

@@ -3,5 +3,3 @@ var currentScore = parseInt($('#current_score').val()) + parseInt(<%= @answer.po
 var scope = $('#answer_' + answerId)
 $('a', scope).addClass('disabled')
 $('#current_score').val(currentScore)
-var validAnswers = localStorage.getItem('validAnswers')
-localStorage.setItem('validAnswers', validAnswers.push(answerId))
