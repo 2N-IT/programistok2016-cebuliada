@@ -22,7 +22,8 @@ export default function (state = initialState, action) {
     case Actions.ADD_VALID_ANSWER:
       return (
         Object.assign({}, state, {
-          valid_answers: state.valid_answers.concat(parseInt(action.answerId))
+          valid_answers: state.valid_answers.concat(parseInt(action.answerId)),
+          current_score: state.current_score + parseInt(action.points)
         })
       )
     case Actions.ADD_INVALID_ANSWER:
@@ -43,7 +44,8 @@ export default function (state = initialState, action) {
             score: Object.assign(
               {},
               state.score,
-              { [action.team]: parseInt(state.score[action.team]) + parseInt(action.points)})
+              { [action.team]: parseInt(state.score[action.team]) + parseInt(action.points)}),
+            current_score: 0
           }
         )
       )

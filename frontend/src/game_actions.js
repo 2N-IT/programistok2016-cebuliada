@@ -6,8 +6,8 @@ export function setActiveQuestion (question, answers) {
 export function clearInvalidAnswers () {
   return { type: Actions.CLEAR_INVALID_ANSWERS }
 }
-export function addValidAnswer (answerId) {
-  return { type: Actions.ADD_VALID_ANSWER, answerId }
+export function addValidAnswer (answerId, points) {
+  return { type: Actions.ADD_VALID_ANSWER, answerId, points }
 }
 export function addInvalidAnswer (team) {
   return { type: Actions.ADD_INVALID_ANSWER, team }

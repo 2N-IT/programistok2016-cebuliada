@@ -1,8 +1,8 @@
 class AddValidAnswerJob < ApplicationJob
 
-  def perform(team, points, answer_id)
+  def perform(answer_id, points)
     ActionCable.server.broadcast('familiada',
-      action: 'ADD_VALID_ANSWER',team: team, points: points, answerId: answer_id
+      action: 'ADD_VALID_ANSWER', answerId: answer_id, points: points
     )
   end
 
