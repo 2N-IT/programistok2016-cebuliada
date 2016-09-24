@@ -17,5 +17,6 @@
       %td= answer.title
       %td= answer.points
       %td.text-right= link_to 'Przyznaj punkty', valid_answer_path(answer, team: 'red'), remote: true, class: 'btn btn-danger'
-%p.text-center
-  = link_to 'Nastepne pytanie', question_path(@question.next || Question.first)
+- content_for :next_question do
+  %p.text-center
+    = link_to 'Nastepne pytanie', question_path(@question.next || Question.first), class: 'btn btn-default disabled'
