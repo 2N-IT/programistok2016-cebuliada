@@ -5,23 +5,12 @@ class AnswersController < ApplicationController
   end
 
   def valid
-    ActionCable.server.broadcast('familiada',
-      action: 'ADD_VALID_ANSWER',team: team, points: points
-    )
+    AddValidAnswerJob.perform_later(team, points)
     head :ok
   end
 
   def invalid
-    ActionCable.server.broadcast('familiada',
-      action: 'ADD_INVALID_ANSWER', team: team
-    )
-    head :ok
-  end
-
-  def clear
-    ActionCable.server.broadcast('familiada',
-      action: 'CLEAR_INVALID_ANSWERS'
-    )
+    AddInvalidAnswerJob.perform_later(team)
     head :ok
   end
 

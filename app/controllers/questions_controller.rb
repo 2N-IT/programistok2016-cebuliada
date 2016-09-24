@@ -4,7 +4,15 @@ class QuestionsController < ApplicationController
   end
 
   def show
-    @question = Question.find(params[:id])
+    @question = question
+    SetActiveQuestionJob.perform_later(question.id)
+    ClearInvalidAnswersJob.perform_later
+  end
+
+  private
+
+  def question
+    @question ||= Question.find(params[:id])
   end
 
 end
