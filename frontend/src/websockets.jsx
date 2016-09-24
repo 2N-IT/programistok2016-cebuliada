@@ -3,6 +3,8 @@ import ActionCable from 'actioncable';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux'
 import * as Actions from './constants'
+import Alert from 'react-s-alert';
+
 import {
   setActiveQuestion,
   addValidAnswer,
@@ -30,7 +32,9 @@ class Websockets extends React.Component {
       },
     });
   }
-
+  addCustomNotification(content) {
+    Alert.info(content, { html: true });
+  }
   performAction = (data) => {
     switch (data.action) {
       case Actions.SET_ACTIVE_QUESTION:
@@ -43,6 +47,8 @@ class Websockets extends React.Component {
         return this.props.clearInvalidAnswers()
       case Actions.ASSIGN_POINTS:
         return this.props.assignPoints(data.team, data.points)
+      case 'ADD_CUSTOM_NOTIFICATION':
+        return this.addCustomNotification(data.content)
       default:
         return console.log('invalid action from controller', data.type);
    }

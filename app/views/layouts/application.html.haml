@@ -8,7 +8,9 @@
   %body
     .container
       .well.well-sm
-        = link_to 'Zapodaj żart', new_custom_notifications_path, class: 'btn btn-default', remote: true
+        = form_for :custom_notification, url: new_custom_notifications_path, remote: true, method: :get do |f|
+          = f.text_area :content, name: 'content'
+          = f.submit 'Zapodaj żart', class: 'btn btn-default'
         %h4.text-center
           Aktualna pula punktow:
           %b.current-score 0
