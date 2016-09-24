@@ -1,0 +1,5 @@
+$('#current_score').val(0)
+var score = localStorage.getItem('score<%= @team.capitalize%>')
+localStorage.setItem('score<%= @team.capitalize%>', parseInt(score) + parseInt(<%= @points %>))
+$(document).trigger('storage-changed')
+
