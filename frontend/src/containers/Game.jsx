@@ -37,7 +37,7 @@ class Game extends React.Component {
                         id={id}
                         title={title}
                         points={points}
-                        answerClass='valid'
+                        validAnswers={this.props.valid_answers}
                       />
                       )
                   })}
@@ -58,6 +58,7 @@ const mapStateToProps = (state) => (
     score: state.score,
     invalid: state.invalid,
     current_score: state.current_score,
+    valid_answers: state.valid_answers
   }
 )
 

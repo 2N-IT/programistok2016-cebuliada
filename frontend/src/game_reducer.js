@@ -4,7 +4,7 @@ const initialState = {
   current_question: {title: 'currentquestion'},
   current_answers: [{id: 1, title: '2', points: '22'}],
   current_score: 0,
-  valid_answers: [1],
+  valid_answers: [],
   invalid: { red: 0, blue: 0 },
   score: { red: 0, blue: 0 }
 }
