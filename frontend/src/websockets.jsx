@@ -35,12 +35,16 @@ class Websockets extends React.Component {
   addCustomNotification(content) {
     Alert.info(content, { html: true });
   }
+  showAllAnswers() {
+    let answers = document.getElementsByClassName('answers-js')[0].childNodes
+    answers.forEach((answer) => answer.className += ' valid')
+  }
   performAction = (data) => {
     switch (data.action) {
       case Actions.SET_ACTIVE_QUESTION:
         return this.props.setActiveQuestion(data.question, data.answers)
       case Actions.ADD_VALID_ANSWER:
-        return this.props.addValidAnswer(data.answerId)
+        return this.props.addValidAnswer(data.answerId, data.points)
       case Actions.ADD_INVALID_ANSWER:
         return this.props.addInvalidAnswer(data.team)
       case Actions.CLEAR_INVALID_ANSWERS:
@@ -49,6 +53,8 @@ class Websockets extends React.Component {
         return this.props.assignPoints(data.team, data.points)
       case 'ADD_CUSTOM_NOTIFICATION':
         return this.addCustomNotification(data.content)
+      case 'SHOW_ALL_ANSWERS':
+        return this.showAllAnswers()
       default:
         return console.log('invalid action from controller', data.type);
    }

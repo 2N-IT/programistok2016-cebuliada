@@ -1,18 +1,17 @@
 class AnswersController < ApplicationController
 
-  def index
-    @answers = question.answers
-  end
-
   def valid
-    AddValidAnswerJob.perform_later(team, points, answer.id)
     @answer = answer
-    @points = points
+    AddValidAnswerJob.perform_later(@answer.id, @answer.points)
   end
 
   def invalid
+    @team = team
     AddInvalidAnswerJob.perform_later(team)
-    head :ok
+  end
+
+  def show_all
+    ShowAllAnswersJob.perform_later(team)
   end
 
   private
@@ -27,9 +26,5 @@ class AnswersController < ApplicationController
 
   def team
     params[:team]
-  end
-
-  def points
-    answer.points
   end
 end

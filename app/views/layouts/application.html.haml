@@ -8,13 +8,34 @@
   %body
     .container
       .well.well-sm
+        .row
+          .col-xs-4
+            = link_to 'Przydziel pule', 'javascript:void(0)', class: 'btn btn-primary pull-left assign-score', data: {team: 'blue'}
+          .col-xs-4
+            Aktualna pula punktow:
+            = number_field_tag(:current_score, 0, disabled: true)
+          .col-xs-4
+            = link_to 'Przydziel pule', 'javascript:void(0)', class: 'btn btn-danger pull-right assign-score', data: {team: 'red'}
+          = yield :next_question
+          = link_to 'pokaz wszystkie odpowiedzi', show_all_answers_path, class: 'btn btn-default', remote: true
+      .well.well-sm
+        .row
+          .col-xs-6
+            %p
+              Wynik:
+              %b#scoreBlue
+            %p
+              Błędne odpowiedzi:
+              %b#invalidBlue
+          .col-xs-6
+            %p
+              Wynik:
+              %b#scoreRed
+            %p
+              Błędne odpowiedzi:
+              %b#invalidRed
+      = yield
+      .well.well-sm
         = form_for :custom_notification, url: new_custom_notifications_path, remote: true, method: :get do |f|
           = f.text_area :content, name: 'content'
           = f.submit 'Zapodaj żart', class: 'btn btn-default'
-        %h4.text-center
-          Aktualna pula punktow:
-          = number_field_tag(:current_score, 0, disabled: true)
-        = link_to 'Przydziel pule', 'javascript:void(0)', class: 'btn btn-primary pull-left assign-score', data: {team: 'blue'}
-        = link_to 'Przydziel pule', 'javascript:void(0)', class: 'btn btn-danger pull-right assign-score', data: {team: 'red'}
-        .clearfix
-      = yield
