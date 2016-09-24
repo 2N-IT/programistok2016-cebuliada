@@ -1,7 +1,7 @@
-class NotificationsController < ApplicationController
+class CustomNotificationsController < ApplicationController
 
   def new
-    AddCustomNotificationJob.perform_async(template)
+    AddCustomNotificationJob.perform_later(template)
   end
 
   private

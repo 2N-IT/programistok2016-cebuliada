@@ -5,8 +5,9 @@ class AnswersController < ApplicationController
   end
 
   def valid
-    AddValidAnswerJob.perform_later(team, points)
-    head :ok
+    AddValidAnswerJob.perform_later(team, points, answer.id)
+    @answer = answer
+    @points = points
   end
 
   def invalid
