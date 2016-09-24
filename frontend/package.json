@@ -1,7 +1,7 @@
 {
   "name": "react-webpack-babel",
   "version": "0.0.3",
-  "description": "React Webpack Babel Starter Kit",
+  "description": "Programistok 2016 - Familiada",
   "main": "''",
   "scripts": {
     "build": "webpack --config webpack.production.config.js --progress --profile --colors --display-error-details",
@@ -14,18 +14,16 @@
   },
   "author": "Ali Al Dallal",
   "license": "MIT",
-  "homepage": "https://github.com/alicoding/react-webpack-babel#readme",
+  "homepage": "https://github.com/epicatization/programistok-familiada#readme",
   "dependencies": {
     "actioncable": "^5.0.0",
-    "bootstrap": "^4.0.0-alpha.3",
     "node-sass": "^3.9.2",
     "react": "0.14.5",
     "react-dom": "0.14.5",
     "react-redux": "^4.4.5",
     "react-s-alert": "^1.1.4",
     "redux": "^3.6.0",
-    "sass-loader": "^4.0.1",
-    "whatwg-fetch": "^1.0.0"
+    "sass-loader": "^4.0.1"
   },
   "devDependencies": {
     "babel-core": "6.14.0",
