@@ -14,6 +14,6 @@ class SetActiveQuestionJob < ApplicationJob
   end
 
   def answers
-    question.answers.order(points: :desc)
+    question.answers
   end
 end

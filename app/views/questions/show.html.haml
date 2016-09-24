@@ -4,7 +4,7 @@
     %th Odpowiedź
     %th Punkty
     %th
-  - @question.answers.order(points: :desc).each do |answer|
+  - @question.answers.each do |answer|
     %tr[answer]
       %td= answer.title
       %td= answer.points
