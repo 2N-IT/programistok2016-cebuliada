@@ -1,19 +1,21 @@
-%p#notice= notice
-%p
-  %strong= "Title#{@question.title}"
-  .row
-    .col-xs-6
-      %h1
-        = link_to 'BLAD BLUE', invalid_answers_path(team: 'blue'), remote: true
-    .col-xs-6
-      %h1
-        = link_to 'BLAD red', invalid_answers_path(team: 'red'), remote: true
-  %table.table
-    - @question.answers.each do |answer|
-      %tr
-        %td= link_to 'Blue', valid_answer_path(answer, team: 'blue'), remote: true
-        %td= answer.title
-        %td= answer.points
-        %td= link_to 'Red', valid_answer_path(answer, team: 'red'), remote: true
-
-= link_to 'Nastepne pytanie', question_path(@question.next || Question.first)
+%h1= @question.title
+%table.table
+  %tbody
+    %th Druzyna niebieska
+    %th Odpowiedź
+    %th Punkty
+    %th Druzyna czerwona
+  %tr
+    %td{colspan: 2}
+      = link_to 'BŁAD DRUZYNY NIEBIESKIEJ', invalid_answers_path(team: 'blue'), remote: true, class: 'btn btn-primary'
+    %td.text-right{colspan: 2}
+      = link_to 'BŁAD DRUZYNY CZERWONEJ', invalid_answers_path(team: 'red'), remote: true, class: 'btn btn-danger'
+  - @question.answers.order(points: :desc).each do |answer|
+    %tr[answer]
+      %td
+        = link_to 'Przyznaj punkty', valid_answer_path(answer, team: 'blue'), remote: true, class: 'btn btn-primary'
+      %td= answer.title
+      %td= answer.points
+      %td.text-right= link_to 'Przyznaj punkty', valid_answer_path(answer, team: 'red'), remote: true, class: 'btn btn-danger'
+%p.text-center
+  = link_to 'Nastepne pytanie', question_path(@question.next || Question.first)

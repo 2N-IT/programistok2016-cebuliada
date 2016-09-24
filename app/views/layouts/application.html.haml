@@ -1,0 +1,18 @@
+!!!
+%html
+  %head
+    %title Programistok
+    = csrf_meta_tags
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  %body
+    .container
+      .well.well-sm
+        = link_to 'Zapodaj żart', new_custom_notifications_path, class: 'btn btn-default', remote: true
+        %h4.text-center
+          Aktualna pula punktow:
+          %b.current-score 0
+        = link_to 'Przydziel pule', assign_score_path(team: 'blue'), class: 'btn btn-primary pull-left', remote: true
+        = link_to 'Przydziel pule', assign_score_path(team: 'red'), class: 'btn btn-danger pull-right', remote: true
+        .clearfix
+      = yield
