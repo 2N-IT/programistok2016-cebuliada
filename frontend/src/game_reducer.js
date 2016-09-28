@@ -1,14 +1,21 @@
 import * as Actions from './constants'
 
+// const initialState = {
+//   current_question: {},
+//   current_answers: [],
+//   current_score: 0,
+//   valid_answers: [],
+//   invalid: { red: 0, blue: 0 },
+//   score: { red: 0, blue: 0 }
+// }
 const initialState = {
-  current_question: {},
-  current_answers: [],
-  current_score: 0,
+  current_question: {title: 'przykladowe pytanie'},
+  current_answers: [{title: 'przykladowa odpowiedz', points: 12, id: 1}, {title: 'przykladowa odpowiedz', points: 12, id: 2}],
+  current_score: 3212,
   valid_answers: [],
-  invalid: { red: 0, blue: 0 },
-  score: { red: 0, blue: 0 }
+  invalid: { red: 0, blue: 3 },
+  score: { red: 122, blue: 331 }
 }
-
 export default function (state = initialState, action) {
   switch (action.type) {
     case Actions.SET_ACTIVE_QUESTION:
