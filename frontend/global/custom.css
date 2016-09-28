@@ -1,3 +1,13 @@
+@font-face {
+  font-family: familiada;
+  src: url(familiada.ttf);
+}
+body {
+  font-family: familiada;
+  background: black;
+  color: white;
+  font-size: 35px;
+}
 .answers-js tr td {
   opacity: 0;
 }
@@ -9,7 +19,10 @@
 }
 .logo {
   display: block;
-  margin: 20px auto;
+  margin: 20px auto 50px auto;
+}
+.score-container {
+  margin-bottom: 50px
 }
 .pagination {
   display: block;
@@ -20,4 +33,30 @@
 }
 .opacity0 {
   opacity: 0
+}
+table, tr, td, tbody {
+  border: 0 !important;
+}
+
+.invalid-answers {
+  list-style: none;
+  font-size: 120px;
+}
+.logo {
+  text-transform: uppercase;
+}
+#question-title {
+  text-align: center;
+}
+h1 {
+  font-size: 300%;
+}
+h2 {
+  font-size: 250%;
+}
+h3 {
+  font-size: 200%;
+}
+h4 {
+  font-size: 150%;
 }

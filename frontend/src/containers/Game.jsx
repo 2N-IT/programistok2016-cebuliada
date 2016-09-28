@@ -3,9 +3,11 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux'
 import Websockets from './../websockets'
-
+import logo from './logo.png'
 import Answer from './../components/Answer'
+import InvalidAnswers from './../components/InvalidAnswers'
 import Score from './../components/Score'
+
 
 import Alert from 'react-s-alert';
 import 'react-s-alert/dist/s-alert-default.css';
@@ -17,8 +19,7 @@ class Game extends React.Component {
     return (
       <div className="container">
       <Websockets />
-        <img className="logo" src="http://programistok.org/images/programistok.png"/>
-        <h1 className='text-center'> Familiada </h1>
+        <h1 className='text-center logo'> cebuliada </h1>
         <Score
           invalid={this.props.invalid}
           score={this.props.score}
@@ -28,24 +29,36 @@ class Game extends React.Component {
           <div className="row">
             <div className="col-xs-12">
               <h3 id='question-title'>{this.props.question.title}</h3>
-              <table className="table table-bordered">
-                <tbody className='answers-js'>
-                  {this.props.answers.map(({id, title, points}) => {
-                    return (
-                      <Answer
-                        key={id}
-                        id={id}
-                        title={title}
-                        points={points}
-                        validAnswers={this.props.valid_answers}
-                      />
-                      )
-                  })}
-                </tbody>
-              </table>
+              <div className="row">
+                <div className='col-xs-1'>
+                  <InvalidAnswers invalid={this.props.invalid} team={'blue'} />
+                </div>
+                <div className='col-xs-10'>
+                  <table className="table table-bordered text-center">
+                    <tbody className='answers-js'>
+                      {this.props.answers.map(({id, title, points}) => {
+                        return (
+                          <Answer
+                            key={id}
+                            id={id}
+                            title={title}
+                            points={points}
+                            validAnswers={this.props.valid_answers}
+                          />
+                          )
+                      })}
+                    </tbody>
+                  </table>
+                </div>
+                <div className='col-xs-1'>
+                  <InvalidAnswers invalid={this.props.invalid} team={'red'} />
+                </div>
+              </div>
             </div>
           </div>
         </div>
+        <img className="logo" src={logo}/>
+
         <Alert stack={{limit: 3, beep: true}} />
       </div>
     )
