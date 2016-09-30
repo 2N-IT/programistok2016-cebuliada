@@ -39,7 +39,7 @@ class Websockets extends React.Component {
   }
 
   addCustomNotification(content) {
-    Alert.info(content, { html: true });
+    Alert.success(content, { html: true, timeout: 5000, position: 'top'});
   }
 
   showAllAnswers() {

@@ -41,7 +41,15 @@ $( document ).on 'turbolinks:load', ->
         team: $(this).data('team')
         value: $(this).val()
 
-  $(document).off('keydown').on 'keydown', ->
-    if event.keyCode == 225
-      $.ajax
-        url: '/game/show_suprise'
+  $('#introWav')
+
+  $(document).off('keydown').on 'keydown', (event)->
+    console.log('test:', event.keyCode)
+    switch event.keyCode
+      when 225
+        $.ajax
+          url: '/game/show_suprise'
+      when 105
+        document.getElementById('introWav').play()
+      when 97
+        document.getElementById('funnyWav').play()

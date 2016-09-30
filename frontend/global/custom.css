@@ -87,3 +87,7 @@ h4 {
   background-image: url(./../public/suprise.jpg);
   background-size: cover;
 }
+.s-alert-success {
+  background: rgba(39, 174, 96, 0.9) !important;
+  font-size: 150% !important;
+}
