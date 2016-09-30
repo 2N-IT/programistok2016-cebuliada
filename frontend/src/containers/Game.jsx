@@ -16,8 +16,8 @@ class Game extends React.Component {
 
   render() {
     return (
-      <div className="container">
-      <Websockets />
+      <div>
+        <Websockets />
         <h1 className='text-center logo'> cebuliada </h1>
         <Score
           invalid={this.props.invalid}
@@ -25,39 +25,33 @@ class Game extends React.Component {
           current_score={this.props.current_score}
           team_name={this.props.team_name}
         />
-        <div className="container">
-          <div className="row">
-            <div className="col-xs-12">
-              <h3 id='question-title'>{this.props.question.title}</h3>
-              <div className="row">
-                <div className='col-xs-1'>
-                  <InvalidAnswers invalid={this.props.invalid} team={'blue'} />
-                </div>
-                <div className='col-xs-10'>
-                  <table className="table table-bordered text-center">
-                    <tbody className='answers-js'>
-                      {this.props.answers.map(({id, title, points}) => {
-                        return (
-                          <Answer
-                            key={id}
-                            id={id}
-                            title={title}
-                            points={points}
-                            validAnswers={this.props.valid_answers}
-                          />
-                          )
-                      })}
-                    </tbody>
-                  </table>
-                </div>
-                <div className='col-xs-1'>
-                  <InvalidAnswers invalid={this.props.invalid} team={'red'} />
-                </div>
-              </div>
-            </div>
+        <h3 id='question-title'>{this.props.question.title}</h3>
+        <div className="row">
+          <div className='col-xs-1'>
+            <InvalidAnswers invalid={this.props.invalid} team={'blue'} />
+          </div>
+          <div className='col-xs-10 answers-list'>
+            <table className="table table-bordered text-center">
+              <tbody className='answers'>
+                {this.props.answers.map(({id, title, points}) => {
+                  return (
+                    <Answer
+                      key={id}
+                      id={id}
+                      title={title}
+                      points={points}
+                      validAnswers={this.props.valid_answers}
+                    />
+                    )
+                })}
+              </tbody>
+            </table>
+          </div>
+          <div className='col-xs-1'>
+            <InvalidAnswers invalid={this.props.invalid} team={'red'} />
           </div>
         </div>
-        <img className="logo" src={logo}/>
+        <img className="footer" src={logo}/>
 
         <Alert stack={{limit: 3, beep: true}} />
       </div>
