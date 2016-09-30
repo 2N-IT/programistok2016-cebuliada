@@ -35,10 +35,7 @@ class Websockets extends React.Component {
   }
 
   shortlyHideQuestionTitle (){
-    document.getElementById('question-title').className = 'opacity0'
-    setTimeout( () => {
-      document.getElementById('question-title').className = ''
-    }, 5000)
+    document.getElementById('question-title').style.opacity = '0'
   }
 
   addCustomNotification(content) {
@@ -46,7 +43,7 @@ class Websockets extends React.Component {
   }
 
   showAllAnswers() {
-    let answers = document.getElementsByClassName('answers-js')[0].childNodes
+    let answers = document.getElementsByClassName('answers')[0].childNodes
     answers.forEach((answer) => answer.className += ' valid')
   }
 
@@ -84,6 +81,8 @@ class Websockets extends React.Component {
         return document.getElementById('intro').style.opacity = 0
       case 'SHOW_SUPRISE':
         return this.showSuprise()
+      case 'SHOW_QUESTION_TITLE':
+        return document.getElementById('question-title').style.opacity = '1'
       default:
         return console.log('invalid action from controller', data.type);
    }

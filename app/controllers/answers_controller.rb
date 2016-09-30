@@ -11,7 +11,7 @@ class AnswersController < ApplicationController
   end
 
   def show_all
-    ShowAllAnswersJob.perform_later(team)
+    ShowAllAnswersJob.perform_later
   end
 
   private

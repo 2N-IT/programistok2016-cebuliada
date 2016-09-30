@@ -1,6 +1,6 @@
 class ShowAllAnswersJob < ApplicationJob
 
-  def perform(team)
+  def perform
     ActionCable.server.broadcast('familiada',
       action: 'SHOW_ALL_ANSWERS'
     )

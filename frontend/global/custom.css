@@ -33,9 +33,6 @@ body {
 .pagination a {
   margin: 0 10px;
 }
-.opacity0 {
-  opacity: 0
-}
 table, tr, td, tbody {
   border: 0 !important;
 }

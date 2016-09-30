@@ -36,9 +36,9 @@
       .well.well-sm
         .row
           %p.text-center
+            = link_to 'pokaż pytanie', show_question_title_game_path, class: 'btn btn-default', remote: true, id: 'show-all'
             = yield :next_question
             = link_to 'pokaz wszystkie odpowiedzi', show_all_answers_path, class: 'btn btn-default disabled', remote: true, id: 'show-all'
-            = link_to 'schowaj pule', hide_intro_game_path, remote: true, class: 'btn btn-success', id: 'hide-intro'
           .col-xs-4
             = link_to 'Przydziel pule', 'javascript:void(0)', class: 'btn btn-primary pull-left assign-score', data: {team: 'blue'}
           .col-xs-4
@@ -51,6 +51,6 @@
         = form_for :custom_notification, url: custom_notification_game_path, remote: true, method: :get do |f|
           = f.text_area :content, name: 'content', style: 'width:100%'
           = f.submit 'Zapodaj żart', class: 'btn btn-default'
-
+        = link_to 'schowaj intro', hide_intro_game_path, remote: true, class: 'btn btn-success', id: 'hide-intro'
 
 

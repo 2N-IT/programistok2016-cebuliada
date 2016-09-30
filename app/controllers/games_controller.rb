@@ -15,4 +15,8 @@ class GamesController < ApplicationController
   def change_name
     ChangeNameJob.perform_later(params[:team], params[:value])
   end
+
+  def show_question_title
+    ShowQuestionTitleJob.perform_later
+  end
 end

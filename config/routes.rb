@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     get :hide_intro
     get :show_suprise
     get :change_name
+    get :show_question_title
   end
   resources :answers, only: [] do
     get :valid, on: :member

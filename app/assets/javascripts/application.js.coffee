@@ -10,8 +10,6 @@ localStorage.setItem('scoreBlue', 0)
 
 $( document ).on 'turbolinks:load', ->
 
-  $('#hide-intro').on 'click', -> $(this).remove()
-
   localStorage.setItem('invalidRed', 0)
   localStorage.setItem('invalidBlue', 0)
 
