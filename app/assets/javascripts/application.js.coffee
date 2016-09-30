@@ -13,7 +13,7 @@ $( document ).on 'turbolinks:load', ->
   localStorage.setItem('invalidRed', 0)
   localStorage.setItem('invalidBlue', 0)
 
-  $('.assign-score').on 'click' , ->
+  $('.assign-score').off('click').on 'click' , ->
     team = $(this).data('team')
     points = $('#current_score').val()
     $.ajax
@@ -25,7 +25,7 @@ $( document ).on 'turbolinks:load', ->
   ['invalidRed', 'invalidBlue', 'scoreRed', 'scoreBlue'].map (field) ->
     $("b##{field}").text(localStorage.getItem(field))
 
-  $(document).on 'storage-changed', ->
+  $(document).off('storage-changed').on 'storage-changed', ->
     ['invalidRed', 'invalidBlue', 'scoreRed', 'scoreBlue'].map (field) ->
       $("b##{field}").text(localStorage.getItem(field))
     ['invalidRed', 'invalidBlue'].map (field) ->
@@ -34,14 +34,14 @@ $( document ).on 'turbolinks:load', ->
       else
         $("a##{field}").removeClass('disabled')
 
-  $('.teamName').on 'change', ->
+  $('.teamName').off('change').on 'change', ->
     $.ajax
       url: '/game/change_name'
       data:
         team: $(this).data('team')
         value: $(this).val()
 
-  $(document).on 'keydown', ->
+  $(document).off('keydown').on 'keydown', ->
     if event.keyCode == 225
       $.ajax
         url: '/game/show_suprise'

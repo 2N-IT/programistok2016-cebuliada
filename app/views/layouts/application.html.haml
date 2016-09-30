@@ -36,7 +36,7 @@
       .well.well-sm
         .row
           %p.text-center
-            = link_to 'pokaż pytanie', show_question_title_game_path, class: 'btn btn-default', remote: true, id: 'show-all'
+            = link_to 'pokaż pytanie', show_question_title_game_path, class: 'btn btn-default', remote: true
             = yield :next_question
             = link_to 'pokaz wszystkie odpowiedzi', show_all_answers_path, class: 'btn btn-default disabled', remote: true, id: 'show-all'
           .col-xs-4
