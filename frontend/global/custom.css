@@ -11,7 +11,7 @@ body {
 
 .answers tr td {
   opacity: 0;
-  font-size: 150%
+  font-size: 120%
 }
 .answers tr.valid td {
   opacity: 1;
@@ -20,8 +20,14 @@ body {
   color: red;
 }
 .footer {
-  display: block;
-  margin: 20px auto 50px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.footer img {
+  display: inline-block;
+  max-height: 42px;
+  margin-left: 30px;
 }
 .score-container {
   margin-bottom: 50px
@@ -39,15 +45,15 @@ table, tr, td, tbody {
 
 .invalid-answers {
   list-style: none;
-  font-size: 120px;
+  font-size: 100px;
 }
 .logo {
   text-transform: uppercase;
-  margin: 100px auto;
+  margin: 50px auto;
 }
 #question-title {
   text-align: center;
-  margin: 100px auto 50px auto;
+  margin: 50px auto;
 }
 h1 {
   font-size: 300%;
@@ -61,16 +67,23 @@ h3 {
 h4 {
   font-size: 150%;
 }
-#real-life, #intro {
+#suprise, #intro {
   position: fixed;
   z-index: 2;
   width: 100%;
   height: 100%;
-  background: pink;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 #intro {
-  background: #fff
+  background: #fff;
+  background-image: url(./../public/intro.jpg);
+  background-size: cover;
+}
+
+#suprise {
+  background: pink;
+  background-image: url(./../public/suprise.jpg);
+  background-size: cover;
 }

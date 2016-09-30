@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux'
 import Websockets from './../websockets'
 import logo from './logo.png'
+import logo2n from './logo2n.png'
 import Answer from './../components/Answer'
 import InvalidAnswers from './../components/InvalidAnswers'
 import Score from './../components/Score'
@@ -25,7 +26,7 @@ class Game extends React.Component {
           current_score={this.props.current_score}
           team_name={this.props.team_name}
         />
-        <h3 id='question-title'>{this.props.question.title}</h3>
+        <h4 id='question-title'>{this.props.question.title}</h4>
         <div className="row">
           <div className='col-xs-1'>
             <InvalidAnswers invalid={this.props.invalid} team={'blue'} />
@@ -51,7 +52,10 @@ class Game extends React.Component {
             <InvalidAnswers invalid={this.props.invalid} team={'red'} />
           </div>
         </div>
-        <img className="footer" src={logo}/>
+        <div className='footer'>
+          <img src={logo}/>
+          <img src={logo2n}/>
+        </div>
 
         <Alert stack={{limit: 3, beep: true}} />
       </div>

@@ -48,7 +48,7 @@ class Websockets extends React.Component {
   }
 
   showSuprise() {
-    const elem = document.getElementById('real-life')
+    const elem = document.getElementById('suprise')
     if (elem.style.opacity == 1)
       elem.style.opacity = 0
     else {
