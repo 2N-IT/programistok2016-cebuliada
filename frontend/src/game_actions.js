@@ -15,4 +15,6 @@ export function addInvalidAnswer (team) {
 export function assignPoints(team, points) {
   return { type: Actions.ASSIGN_POINTS, team, points }
 }
-
+export function changeName(team, value) {
+  return { type: Actions.CHANGE_NAME, team, value }
+}

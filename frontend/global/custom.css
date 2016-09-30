@@ -60,7 +60,7 @@ h3 {
 h4 {
   font-size: 150%;
 }
-#real-life {
+#real-life, #intro {
   position: fixed;
   z-index: 2;
   width: 100%;
@@ -69,4 +69,7 @@ h4 {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+#intro {
+  background: #fff
 }

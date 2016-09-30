@@ -9,8 +9,12 @@ localStorage.setItem('scoreRed', 0)
 localStorage.setItem('scoreBlue', 0)
 
 $( document ).on 'turbolinks:load', ->
+
+  $('#hide-intro').on 'click', -> $(this).remove()
+
   localStorage.setItem('invalidRed', 0)
   localStorage.setItem('invalidBlue', 0)
+
   $('.assign-score').on 'click' , ->
     team = $(this).data('team')
     points = $('#current_score').val()
@@ -31,3 +35,15 @@ $( document ).on 'turbolinks:load', ->
         $("a##{field}").addClass('disabled')
       else
         $("a##{field}").removeClass('disabled')
+
+  $('.teamName').on 'change', ->
+    $.ajax
+      url: '/game/change_name'
+      data:
+        team: $(this).data('team')
+        value: $(this).val()
+
+  $(document).on 'keydown', ->
+    if event.keyCode == 225
+      $.ajax
+        url: '/game/show_suprise'

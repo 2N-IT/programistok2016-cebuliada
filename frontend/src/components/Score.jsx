@@ -4,13 +4,13 @@ const Score = (props) => {
   return (
     <div className="row score-container">
       <div className="col-xs-4 text-left">
-        <strong>TEAM1: {props.score.blue}</strong>
+        <strong>{props.team_name.blue}: {props.score.blue}</strong>
       </div>
       <div className="col-xs-4 text-center">
         <strong>{props.current_score}</strong>
       </div>
       <div className="col-xs-4 text-right">
-        <strong>TEAM2: {props.score.red}</strong>
+        <strong>{props.team_name.red}: {props.score.red}</strong>
       </div>
     </div>
     )

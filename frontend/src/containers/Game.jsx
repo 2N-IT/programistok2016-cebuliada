@@ -14,23 +14,6 @@ import 'react-s-alert/dist/s-alert-css-effects/slide.css';
 
 class Game extends React.Component {
 
-  _handleKeyPress(event) {
-    console.log('test:', event.keyCode);
-    if(event.keyCode == 225){
-      document.getElementById('real-life').style.opacity = 1
-      setTimeout( () => {
-        document.getElementById('real-life').style.opacity = 0
-      }, 5000)
-    }
-  }
-  componentWillMount () {
-    document.addEventListener("keydown", this._handleKeyPress, false)
-  }
-
-  componentWillUnmount () {
-    document.removeEventListener("keydown", this._handleKeyPress, false)
-  }
-
   render() {
     return (
       <div className="container">
@@ -40,6 +23,7 @@ class Game extends React.Component {
           invalid={this.props.invalid}
           score={this.props.score}
           current_score={this.props.current_score}
+          team_name={this.props.team_name}
         />
         <div className="container">
           <div className="row">
@@ -87,7 +71,8 @@ const mapStateToProps = (state) => (
     score: state.score,
     invalid: state.invalid,
     current_score: state.current_score,
-    valid_answers: state.valid_answers
+    valid_answers: state.valid_answers,
+    team_name: state.team_name
   }
 )
 

@@ -7,8 +7,38 @@
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
     .container
+      .well
+        .row
+          .col-xs-6
+            %p
+              Nazwa druzyny 1:
+              %input.teamName{ data: { team: 'blue' } }
+            %p
+              Aktualny wynik
+              %b#scoreBlue
+            %p
+              Błędne odpowiedzi
+              %b#invalidBlue
+            %p
+              = link_to 'Błąd', invalid_answers_path(team: 'blue'), remote: true, class: 'btn btm-sm btn-primary', id: 'invalidBlue'
+          .col-xs-6.text-right
+            %p
+              Nazwa druzyny 2:
+              %input.teamName{ data: { team: 'red' } }
+            %p
+              Aktualny wynik
+              %b#scoreRed
+            %p
+              Błędne odpowiedzi
+              %b#invalidRed
+            %p
+              = link_to 'Błąd', invalid_answers_path(team: 'red'), remote: true, class: 'btn btm-sm btn-danger', id: 'invalidRed'
       .well.well-sm
         .row
+          %p.text-center
+            = yield :next_question
+            = link_to 'pokaz wszystkie odpowiedzi', show_all_answers_path, class: 'btn btn-default disabled', remote: true, id: 'show-all'
+            = link_to 'schowaj pule', hide_intro_game_path, remote: true, class: 'btn btn-success', id: 'hide-intro'
           .col-xs-4
             = link_to 'Przydziel pule', 'javascript:void(0)', class: 'btn btn-primary pull-left assign-score', data: {team: 'blue'}
           .col-xs-4
@@ -16,30 +46,11 @@
             = number_field_tag(:current_score, 0, disabled: true)
           .col-xs-4
             = link_to 'Przydziel pule', 'javascript:void(0)', class: 'btn btn-danger pull-right assign-score', data: {team: 'red'}
-          = yield :next_question
-          %p.text-center
-            = link_to 'pokaz wszystkie odpowiedzi', show_all_answers_path, class: 'btn btn-default disabled', remote: true, id: 'show-all'
-      .well.well-sm
-        .row
-          .col-xs-6.text-left
-            %p
-              Wynik:
-              %b#scoreBlue
-            %p
-              Błędne odpowiedzi:
-              %b#invalidBlue
-            = link_to 'BŁAD DRUZYNY NIEBIESKIEJ', invalid_answers_path(team: 'blue'), remote: true, class: 'btn btn-primary', id: 'invalidBlue'
-
-          .col-xs-6.text-right
-            %p
-              Wynik:
-              %b#scoreRed
-            %p
-              Błędne odpowiedzi:
-              %b#invalidRed
-            = link_to 'BŁAD DRUZYNY CZERWONEJ', invalid_answers_path(team: 'red'), remote: true, class: 'btn btn-danger', id: 'invalidRed'
       = yield
       .well.well-sm
-        = form_for :custom_notification, url: new_custom_notifications_path, remote: true, method: :get do |f|
-          = f.text_area :content, name: 'content'
+        = form_for :custom_notification, url: custom_notification_game_path, remote: true, method: :get do |f|
+          = f.text_area :content, name: 'content', style: 'width:100%'
           = f.submit 'Zapodaj żart', class: 'btn btn-default'
+
+
+

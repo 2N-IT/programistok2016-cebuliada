@@ -6,7 +6,8 @@ const initialState = {
   current_score: 0,
   valid_answers: [],
   invalid: { red: 0, blue: 0 },
-  score: { red: 0, blue: 0 }
+  score: { red: 0, blue: 0 },
+  team_name: { red: 'teamred', blue: 'teamBlue'}
 }
 // const initialState = {
 //   current_question: {title: 'przykladowe pytanie'},
@@ -39,10 +40,11 @@ export default function (state = initialState, action) {
             invalid: Object.assign(
               {},
               state.invalid,
-              { [action.team]: state.invalid[action.team] + 1})
+              { [action.team]: state.invalid[action.team] + 1}
+            )
           }
         )
-        )
+      )
     case Actions.ASSIGN_POINTS:
       return (
         Object.assign({}, state,
@@ -60,6 +62,18 @@ export default function (state = initialState, action) {
         Object.assign({}, state,
           {
             invalid: { red: 0, blue: 0 }
+          }
+        )
+      )
+    case Actions.CHANGE_NAME:
+      return (
+        Object.assign({}, state,
+          {
+            team_name: Object.assign(
+              {},
+              state.team_name,
+              { [action.team]: action.value}
+            )
           }
         )
       )

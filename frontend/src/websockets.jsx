@@ -10,7 +10,8 @@ import {
   addValidAnswer,
   addInvalidAnswer,
   clearInvalidAnswers,
-  assignPoints
+  assignPoints,
+  changeName
 } from './game_actions'
 
 class Websockets extends React.Component {
@@ -22,7 +23,7 @@ class Websockets extends React.Component {
 
   componentDidMount() {
     const cable = ActionCable.createConsumer('ws://localhost:3000/cable');
-    cable.subscriptions.create('QuestionChannel',  {
+    cable.subscriptions.create('ProgramistokChannel',  {
       connected() {
         console.log('connected:');
       },
@@ -32,19 +33,32 @@ class Websockets extends React.Component {
       },
     });
   }
+
   shortlyHideQuestionTitle (){
     document.getElementById('question-title').className = 'opacity0'
     setTimeout( () => {
       document.getElementById('question-title').className = ''
     }, 5000)
   }
+
   addCustomNotification(content) {
     Alert.info(content, { html: true });
   }
+
   showAllAnswers() {
     let answers = document.getElementsByClassName('answers-js')[0].childNodes
     answers.forEach((answer) => answer.className += ' valid')
   }
+
+  showSuprise() {
+    const elem = document.getElementById('real-life')
+    if (elem.style.opacity == 1)
+      elem.style.opacity = 0
+    else {
+      elem.style.opacity = 1
+    }
+  }
+
   performAction = (data) => {
     switch (data.action) {
       case Actions.SET_ACTIVE_QUESTION:
@@ -60,20 +74,23 @@ class Websockets extends React.Component {
         return this.props.clearInvalidAnswers()
       case Actions.ASSIGN_POINTS:
         return this.props.assignPoints(data.team, data.points)
+      case Actions.CHANGE_NAME:
+        return this.props.changeName(data.team, data.value)
       case 'ADD_CUSTOM_NOTIFICATION':
         return this.addCustomNotification(data.content)
       case 'SHOW_ALL_ANSWERS':
         return this.showAllAnswers()
+      case 'HIDE_INTRO':
+        return document.getElementById('intro').style.opacity = 0
+      case 'SHOW_SUPRISE':
+        return this.showSuprise()
       default:
         return console.log('invalid action from controller', data.type);
    }
   }
 
   render() {
-    return (
-      <div className="container">
-      </div>
-    )
+    return false
   }
 }
 
@@ -83,7 +100,8 @@ const mapDispatchToProps = (dispatch) => {
    addValidAnswer,
    addInvalidAnswer,
    clearInvalidAnswers,
-   assignPoints
+   assignPoints,
+   changeName
  }, dispatch)
 }
 export default connect(null, mapDispatchToProps)(Websockets);
