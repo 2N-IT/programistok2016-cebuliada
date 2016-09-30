@@ -8,12 +8,28 @@ import Answer from './../components/Answer'
 import InvalidAnswers from './../components/InvalidAnswers'
 import Score from './../components/Score'
 
-
 import Alert from 'react-s-alert';
 import 'react-s-alert/dist/s-alert-default.css';
 import 'react-s-alert/dist/s-alert-css-effects/slide.css';
 
 class Game extends React.Component {
+
+  _handleKeyPress(event) {
+    console.log('test:', event.keyCode);
+    if(event.keyCode == 225){
+      document.getElementById('real-life').style.opacity = 1
+      setTimeout( () => {
+        document.getElementById('real-life').style.opacity = 0
+      }, 5000)
+    }
+  }
+  componentWillMount () {
+    document.addEventListener("keydown", this._handleKeyPress, false)
+  }
+
+  componentWillUnmount () {
+    document.removeEventListener("keydown", this._handleKeyPress, false)
+  }
 
   render() {
     return (
