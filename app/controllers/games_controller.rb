@@ -19,4 +19,11 @@ class GamesController < ApplicationController
   def show_question_title
     ShowQuestionTitleJob.perform_later
   end
+
+  def assign_score
+    @team = params[:team]
+    @points = params[:points]
+    AssignPointsJob.perform_later(@team, @points)
+  end
+
 end

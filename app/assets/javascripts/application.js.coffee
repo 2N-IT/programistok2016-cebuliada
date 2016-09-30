@@ -17,7 +17,7 @@ $( document ).on 'turbolinks:load', ->
     team = $(this).data('team')
     points = $('#current_score').val()
     $.ajax
-      url: "/assign_scores/new"
+      url: "/game/assign_score"
       data:
         team: team
         points: points
