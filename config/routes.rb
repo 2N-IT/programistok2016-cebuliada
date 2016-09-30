@@ -9,11 +9,11 @@ Rails.application.routes.draw do
     get :change_name
     get :show_question_title
     get :assign_score
+    get :show_all_answers
   end
   resources :answers, only: [] do
     get :valid, on: :member
     get :invalid, on: :collection
-    get :show_all, on: :collection
   end
   mount ActionCable.server => '/cable'
 end

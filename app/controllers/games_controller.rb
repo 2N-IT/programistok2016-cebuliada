@@ -26,4 +26,7 @@ class GamesController < ApplicationController
     AssignPointsJob.perform_later(@team, @points)
   end
 
+  def show_all_answers
+    ShowAllAnswersJob.perform_later
+  end
 end

@@ -38,7 +38,7 @@
           %p.text-center
             = link_to 'pokaż pytanie', show_question_title_game_path, class: 'btn btn-default', remote: true
             = yield :next_question
-            = link_to 'pokaz wszystkie odpowiedzi', show_all_answers_path, class: 'btn btn-default disabled', remote: true, id: 'show-all'
+            = link_to 'pokaz wszystkie odpowiedzi', show_all_answers_game_path, class: 'btn btn-default disabled', remote: true, id: 'show-all'
           .col-xs-4
             = link_to 'Przydziel pule', 'javascript:void(0)', class: 'btn btn-primary pull-left assign-score', data: {team: 'blue'}
           .col-xs-4

@@ -10,10 +10,6 @@ class AnswersController < ApplicationController
     AddInvalidAnswerJob.perform_later(team)
   end
 
-  def show_all
-    ShowAllAnswersJob.perform_later
-  end
-
   private
 
   def question
