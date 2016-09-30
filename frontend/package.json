@@ -10,9 +10,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/alicoding/react-webpack-babel"
+    "url": "https://github.com/epicatization/programistok-familiada"
   },
-  "author": "Ali Al Dallal",
+  "author": "epicatization",
   "license": "MIT",
   "homepage": "https://github.com/epicatization/programistok-familiada#readme",
   "dependencies": {
