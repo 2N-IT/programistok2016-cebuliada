@@ -1,24 +1,40 @@
 # README
+Programistok 2016.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+In this project we use:
+  - Rails 5
+  - ActionCable
+  - Webpack
+  - React + Redux
 
-Things you may want to cover:
+Project that was supposed to imitate Familiada tv show.
 
-* Ruby version
+The main goal was to use new technologies, to learn.
 
-* System dependencies
+Before that project, I had only experience in rails backend development,
+so websockets, js frontened frameworks, were totaly new.
 
-* Configuration
+If you have any suggestions about that code, please contact me !
 
-* Database creation
+## Installation
+```
+git clone git@github.com:epicatization/programistok-familiada.git
+cd programistok-familiada
+```
+## Installation - backend part
+```
+bundle install
+rake db:create
+rake db:migrate
+rake db:seed
+rails s
+visit localhost:3000/questions/1
+```
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Installation - frontend part
+```
+cd frontend
+npm install
+npm start
+open http://127.0.0.1:8888/ in new tab, for example incognito
+```
