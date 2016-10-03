@@ -2,6 +2,9 @@
   font-family: familiada;
   src: url(familiada.ttf);
 }
+#app {
+  margin: 0 15%;
+}
 body {
   font-family: familiada;
   background: black;
@@ -11,7 +14,8 @@ body {
 
 .answers tr td {
   opacity: 0;
-  font-size: 120%
+  font-size: 120%;
+  padding: 10px;
 }
 .answers tr.valid td {
   opacity: 1;
@@ -68,7 +72,8 @@ h4 {
   font-size: 150%;
 }
 #suprise, #intro {
-  position: fixed;
+  position: absolute;
+  top:0;
   z-index: 2;
   width: 100%;
   height: 100%;
@@ -79,13 +84,17 @@ h4 {
 #intro {
   background: #fff;
   background-image: url(./../public/intro.jpg);
-  background-size: cover;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
 }
 
 #suprise {
-  background: pink;
+  background: #fff;
   background-image: url(./../public/suprise.jpg);
-  background-size: cover;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
 }
 .s-alert-success {
   background: rgba(39, 174, 96, 0.9) !important;
