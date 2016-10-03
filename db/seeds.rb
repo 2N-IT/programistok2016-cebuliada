@@ -1,17 +1,41 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-Question.all.destroy_all
-5.times do |i|
-  question = Question.create(title: "Wymień znane ci kolory #{i}")
-    question.answers.create(title: "ZIELONY", points: 10)
-    question.answers.create(title: "Czerwony", points: 20)
-    question.answers.create(title: "Niebieski", points: 30)
-    question.answers.create(title: "Czarny", points: 40)
-    question.answers.create(title: "Różowy", points: 50)
-    question.answers.create(title: "biały", points: 100)
-end
+q1 = Question.create(title: 'Gdybys mial/miala byc typem prostym to jakim?')
+q2 = Question.create(title: 'Wiecej niz jedno zwierze ktore kojarzy sie z programowaniem?')
+q3 = Question.create(title: 'Przedmiot ze studiow, ktory nigdy nie przydal sie w pracy?')
+q4 = Question.create(title: 'Slowa, ktore nigdy nie padaja podczas wdrozenia?')
+q5 = Question.create(title: 'Co i czym jest lepiej pokryte niz Twoj kod testami jednostkowymi?')
+
+Answer.create(question: q1, title: 'nie powiem, hue hue', points: '4')
+Answer.create(question: q1, title: 'Boolem, boolem istnienia.', points: '40')
+Answer.create(question: q1, title: 'stringi', points: '30')
+Answer.create(question: q1, title: 'Jestem sawanna po ktorej biega Lwia Straz', points: '3')
+Answer.create(question: q1, title: 'Charujacym', points: '5')
+Answer.create(question: q1, title: 'Dresem', points: '10')
+
+Answer.create(question: q2, title: 'Lama', points: '30')
+Answer.create(question: q2, title: 'Owca', points: '29')
+Answer.create(question: q2, title: 'Python', points: '20')
+Answer.create(question: q2, title: 'Kapibara', points: '3')
+Answer.create(question: q2, title: 'Stado GNU', points: '2')
+Answer.create(question: q2, title: 'Footerkowe', points: '5')
+
+Answer.create(question: q3, title: 'Kanapka, hue hue', points: '10')
+Answer.create(question: q3, title: 'nie studiowalem :(', points: '15')
+Answer.create(question: q3, title: 'wiedza o tancu', points: '1')
+Answer.create(question: q3, title: 'WF', points: '20')
+Answer.create(question: q3, title: '*', points: '30')
+Answer.create(question: q3, title: 'Co ja robie ze swoim zyciem?', points: '9')
+
+Answer.create(question: q4, title: 'Dziekuje testerom za pomoc w projekcie', points: '15')
+Answer.create(question: q4, title: 'Czas nas nie goni, robcie dokladnie!', points: '20')
+Answer.create(question: q4, title: 'dziekuje, przepraszam', points: '17')
+Answer.create(question: q4, title: 'wszystko dziala', points: '21')
+Answer.create(question: q4, title: 'Jaki piekny kod, kto to napisal, chcialbym go nagrodzic', points: '11')
+Answer.create(question: q4, title: 'sepulki, murkwie, pcmy, abazur', points: '3')
+
+
+Answer.create(question: q5, title: 'Moje CV klamstwami ', points: '21')
+Answer.create(question: q5, title: 'Sprzedam opla.', points: '2')
+Answer.create(question: q5, title: 'moj kod bledami', points: '19')
+Answer.create(question: q5, title: 'Twarz mojej dziewczyny miloscia :) zartuje, nie mam dziewczyny :(', points: '13')
+Answer.create(question: q5, title: 'Co to sa jednostkowymi ?', points: '11')
+Answer.create(question: q5, title: 'Nie wiem. Sorki.', points: '1')
