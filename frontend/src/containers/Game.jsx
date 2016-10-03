@@ -57,7 +57,7 @@ class Game extends React.Component {
           <img src={logo2n}/>
         </div>
 
-        <Alert stack={{limit: 3, beep: true}} />
+        <Alert stack={{limit: 3, beep: true, timeout: 5000}} />
       </div>
     )
   }

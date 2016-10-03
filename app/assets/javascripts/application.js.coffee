@@ -41,7 +41,15 @@ $( document ).on 'turbolinks:load', ->
         team: $(this).data('team')
         value: $(this).val()
 
-  $('#introWav')
+  $('.sound-valid').off('click').on 'click', ->
+    audio = document.getElementById('valid')
+    audio.currentTime = 0
+    audio.play()
+  $('.sound-invalid').off('click').on 'click', ->
+    audio = document.getElementById('invalid')
+    audio.currentTime = 0
+    audio.play()
+
 
   $(document).off('keydown').on 'keydown', (event)->
     console.log('test:', event.keyCode)
@@ -53,3 +61,4 @@ $( document ).on 'turbolinks:load', ->
         document.getElementById('introWav').play()
       when 97
         document.getElementById('funnyWav').play()
+
