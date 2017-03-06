@@ -8,12 +8,18 @@
 localStorage.setItem('scoreRed', 0)
 localStorage.setItem('scoreBlue', 0)
 
-$( document ).on 'turbolinks:load', ->
+$(document).on 'turbolinks:load', ->
 
   localStorage.setItem('invalidRed', 0)
   localStorage.setItem('invalidBlue', 0)
 
+  $('.show-question').off('click').on 'click' , ->
+    $('.assign-score, .question-item').removeClass('disabled')
+
+    $(this).addClass('disabled')
+
   $('.assign-score').off('click').on 'click' , ->
+    $('.assign-score').addClass('disabled')
     team = $(this).data('team')
     points = $('#current_score').val()
     $.ajax
@@ -41,10 +47,23 @@ $( document ).on 'turbolinks:load', ->
         team: $(this).data('team')
         value: $(this).val()
 
+  $('.play-sounds').off('click').on 'click', (e) ->
+    e.preventDefault()
+    e.stopPropagation()
+    type = this.getAttribute('data-sound-type')
+    audio = document.getElementById(type)
+    if audio.currentTime > 0
+      audio.pause()
+      audio.currentTime = 0
+      return
+    audio.currentTime = 0
+    audio.play()
+
   $('.sound-valid').off('click').on 'click', ->
     audio = document.getElementById('valid')
     audio.currentTime = 0
     audio.play()
+
   $('.sound-invalid').off('click').on 'click', ->
     audio = document.getElementById('invalid')
     audio.currentTime = 0

@@ -40,21 +40,24 @@
       .well.well-sm
         .row
           %p.text-center
-            = link_to 'pokaż pytanie', show_question_title_game_path, class: 'btn btn-default', remote: true
+            = link_to 'pokaż pytanie', show_question_title_game_path, class: 'btn btn-default show-question', remote: true
             = yield :next_question
             = link_to 'pokaz wszystkie odpowiedzi', show_all_answers_game_path, class: 'btn btn-default disabled', remote: true, id: 'show-all'
           .col-xs-4
-            = link_to 'Przydziel pule', 'javascript:void(0)', class: 'btn btn-primary pull-left assign-score', data: {team: 'blue'}
+            = link_to 'Przydziel pule', 'javascript:void(0)', class: 'btn btn-primary pull-left assign-score disabled', data: {team: 'blue'}
           .col-xs-4
             Aktualna pula punktow:
             = number_field_tag(:current_score, 0, disabled: true)
           .col-xs-4
-            = link_to 'Przydziel pule', 'javascript:void(0)', class: 'btn btn-danger pull-right assign-score', data: {team: 'red'}
+            = link_to 'Przydziel pule', 'javascript:void(0)', class: 'btn btn-danger pull-right assign-score disabled', data: {team: 'red'}
       = yield
       .well.well-sm
         = form_for :custom_notification, url: custom_notification_game_path, remote: true, method: :get do |f|
           = f.text_area :content, name: 'content', style: 'width:100%'
           = f.submit 'Zapodaj żart', class: 'btn btn-default'
-        = link_to 'schowaj intro', hide_intro_game_path, remote: true, class: 'btn btn-success', id: 'hide-intro'
+          .pull-right
+            = link_to 'schowaj intro', hide_intro_game_path, remote: true, class: 'btn btn-success', id: 'hide-intro'
+            = link_to 'PLAY INTRO', '#', class: 'btn btn-warning play-sounds', data: {sound_type: 'introWav'}
+            = link_to 'PLAY HEHE', '#', class: 'btn btn-warning play-sounds', data: {sound_type: 'funnyWav'}
 
 

@@ -14,7 +14,7 @@ const Score = (props) => {
         <strong>{props.team_name.red}: {props.score.red}</strong>
       </div>
     </div>
-    )
+  )
 }
 
 export default Score

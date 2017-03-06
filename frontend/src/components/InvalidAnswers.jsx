@@ -12,7 +12,7 @@ const InvalidAnswers = (props) => {
         }
       </ul>
     </div>
-    )
+  )
 }
 
 export default InvalidAnswers
