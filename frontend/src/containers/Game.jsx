@@ -1,17 +1,15 @@
-import './../../global/custom.css';
-import React from 'react';
-import { connect } from 'react-redux';
+import './../../assets/custom.css'
+import React from 'react'
+import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import Websockets from './../websockets'
-import logo from './logo.png'
-import logo2n from './logo2n.png'
-import Answer from './../components/Answer'
+import AnswerList from './../components/AnswerList'
 import InvalidAnswers from './../components/InvalidAnswers'
 import Score from './../components/Score'
-
-import Alert from 'react-s-alert';
-import 'react-s-alert/dist/s-alert-default.css';
-import 'react-s-alert/dist/s-alert-css-effects/slide.css';
+import Footer from './../components/Footer'
+import Alert from 'react-s-alert'
+import 'react-s-alert/dist/s-alert-default.css'
+import 'react-s-alert/dist/s-alert-css-effects/slide.css'
 
 class Game extends React.Component {
 
@@ -28,35 +26,11 @@ class Game extends React.Component {
         />
         <h4 id='question-title'>{this.props.question.title}</h4>
         <div className="row">
-          <div className='col-xs-1'>
-            <InvalidAnswers invalid={this.props.invalid} team={'blue'} />
-          </div>
-          <div className='col-xs-10 answers-list'>
-            <table className="table table-bordered text-center">
-              <tbody className='answers'>
-                {this.props.answers.map(({id, title, points}) => {
-                  return (
-                    <Answer
-                      key={id}
-                      id={id}
-                      title={title}
-                      points={points}
-                      validAnswers={this.props.valid_answers}
-                    />
-                    )
-                })}
-              </tbody>
-            </table>
-          </div>
-          <div className='col-xs-1'>
-            <InvalidAnswers invalid={this.props.invalid} team={'red'} />
-          </div>
+          <InvalidAnswers invalid={this.props.invalid} team={'blue'} />
+          <AnswerList answears={this.props.answers} valid_answers={this.props.valid_answers} />
+          <InvalidAnswers invalid={this.props.invalid} team={'red'} />
         </div>
-        <div className='footer'>
-          <img src={logo}/>
-          <img src={logo2n}/>
-        </div>
-
+        <Footer />
         <Alert stack={{limit: 3, beep: true, timeout: 5000}} />
       </div>
     )
@@ -74,4 +48,4 @@ const mapStateToProps = (state) => (
   }
 )
 
-export default connect(mapStateToProps)(Game);
+export default connect(mapStateToProps)(Game)

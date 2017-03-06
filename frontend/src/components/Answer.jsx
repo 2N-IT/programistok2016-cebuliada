@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 const Answer = (props) => {
   const answerClass = props.validAnswers.includes(props.id) ? 'valid' : ''
 
@@ -15,4 +14,5 @@ const Answer = (props) => {
     </tr>
     )
 }
+
 export default Answer

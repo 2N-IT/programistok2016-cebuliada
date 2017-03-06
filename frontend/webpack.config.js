@@ -9,7 +9,7 @@ const PORT = process.env.PORT || "8888";
 
 // global css
 loaders.push({
-	test: /[\/\\](node_modules|global)[\/\\].*\.css$/,
+	test: /[\/\\](node_modules|assets)[\/\\].*\.css$/,
 	loaders: [
 		'style?sourceMap',
 		'css'

@@ -1,6 +1,7 @@
 import React from 'react';
 
 const Score = (props) => {
+
   return (
     <div className="row score-container">
       <div className="col-xs-5 text-left">

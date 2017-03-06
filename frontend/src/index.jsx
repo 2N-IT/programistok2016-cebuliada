@@ -6,8 +6,6 @@ import { Provider } from 'react-redux'
 import gameReducer from './game_reducer'
 
 const store = createStore(gameReducer, window.devToolsExtension && window.devToolsExtension())
-window.store = store;
-
 
 render((
   <Provider store={store}>

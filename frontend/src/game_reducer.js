@@ -7,7 +7,7 @@ const initialState = {
   valid_answers: [],
   invalid: { red: 0, blue: 0 },
   score: { red: 0, blue: 0 },
-  team_name: { red: 'teamred', blue: 'teamBlue'}
+  team_name: { red: 'MEETJS', blue: 'PROGRAMISTOK'}
 }
 
 export default function (state = initialState, action) {
