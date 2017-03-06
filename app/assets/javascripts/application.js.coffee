@@ -27,6 +27,15 @@ $(document).on 'turbolinks:load', ->
       data:
         team: team
         points: points
+      complete: ->
+        $('#current_score').val(0)
+        score = localStorage.getItem("score#{team.capitalize()}")
+        localStorage.setItem("score#{team.capitalize()}", parseInt(score) + parseInt(points))
+        $(document).trigger('storage-changed')
+        $('.answer a').addClass('disabled')
+        $('#next-question').removeClass('disabled')
+        $('#show-all').removeClass('disabled')
+
 
   ['invalidRed', 'invalidBlue', 'scoreRed', 'scoreBlue'].map (field) ->
     $("b##{field}").text(localStorage.getItem(field))
@@ -59,16 +68,34 @@ $(document).on 'turbolinks:load', ->
     audio.currentTime = 0
     audio.play()
 
-  $('.sound-valid').off('click').on 'click', ->
-    audio = document.getElementById('valid')
-    audio.currentTime = 0
-    audio.play()
+  $('.valid-answer').off('click').on 'click', ->
+    answerId = $(this).attr('data-answer-id')
+    $.ajax
+      url: "/answers/#{answerId}/valid"
+      success: (data) ->
+        console.log('test:', data.points)
+        currentScore = parseInt($('#current_score').val()) + parseInt(data.points)
+        scope = $("#answer_#{answerId}")
+        $('a', scope).addClass('disabled')
+        $('#current_score').val(currentScore)
+        audio = document.getElementById('valid')
+        audio.currentTime = 0
+        audio.play()
 
-  $('.sound-invalid').off('click').on 'click', ->
-    audio = document.getElementById('invalid')
-    audio.currentTime = 0
-    audio.play()
-
+  $('.invalid-answer').off('click').on 'click', ->
+    answerId = $(this).attr('data-answer-id')
+    team = $(this).attr('data-team')
+    $.ajax
+      url: "/answers/invalid"
+      data:
+        team: team
+      success: ->
+        invalid = localStorage.getItem("invalid#{team.capitalize()}")
+        localStorage.setItem("invalid#{team.capitalize()}", parseInt(invalid) + 1)
+        $(document).trigger('storage-changed')
+        audio = document.getElementById('invalid')
+        audio.currentTime = 0
+        audio.play()
 
   $(document).off('keydown').on 'keydown', (event)->
     console.log('test:', event.keyCode)

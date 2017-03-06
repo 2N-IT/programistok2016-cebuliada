@@ -24,7 +24,7 @@
               Błędne odpowiedzi
               %b#invalidBlue
             %p
-              = link_to 'Błąd', invalid_answers_path(team: 'blue'), remote: true, class: 'btn btm-sm btn-primary sound-invalid', id: 'invalidBlue'
+              = link_to 'Błąd', 'javascript:void(0)', class: 'btn btm-sm btn-primary invalid-answer', id: 'invalidBlue', data:{ team: 'blue' }
           .col-xs-6.text-right
             %p
               Nazwa druzyny 2:
@@ -36,7 +36,7 @@
               Błędne odpowiedzi
               %b#invalidRed
             %p
-              = link_to 'Błąd', invalid_answers_path(team: 'red'), remote: true, class: 'btn btm-sm btn-danger sound-invalid', id: 'invalidRed'
+              = link_to 'Błąd', 'javascript:void(0)', class: 'btn btm-sm btn-danger invalid-answer', id: 'invalidRed', data:{ team: 'red' }
       .well.well-sm
         .row
           %p.text-center

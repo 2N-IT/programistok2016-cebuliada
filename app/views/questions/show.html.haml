@@ -8,7 +8,7 @@
     %tr[answer]
       %td= answer.title
       %td= answer.points
-      %td.text-right= link_to 'Przyznaj do puli', valid_answer_path(answer), remote: true, class: 'btn btn-default question-item sound-valid disabled'
+      %td.text-right= link_to 'Przyznaj do puli', 'javascript:void(0)', class: 'btn btn-default question-item valid-answer disabled', data: {answer_id: answer.id}
 - content_for :next_question do
   - if @question.next
     = link_to 'Nastepne pytanie', question_path(@question.next), class: 'btn btn-default disabled', id: 'next-question'

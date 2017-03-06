@@ -1,7 +1,0 @@
-$('#current_score').val(0)
-var score = localStorage.getItem('score<%= @team.capitalize%>')
-localStorage.setItem('score<%= @team.capitalize%>', parseInt(score) + parseInt(<%= @points %>))
-$(document).trigger('storage-changed')
-$('.answer a').addClass('disabled')
-$('#next-question').removeClass('disabled')
-$('#show-all').removeClass('disabled')

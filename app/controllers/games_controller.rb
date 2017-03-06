@@ -21,9 +21,7 @@ class GamesController < ApplicationController
   end
 
   def assign_score
-    @team = params[:team]
-    @points = params[:points]
-    AssignPointsJob.perform_later(@team, @points)
+    AssignPointsJob.perform_later(params[:team], params[:points])
   end
 
   def show_all_answers

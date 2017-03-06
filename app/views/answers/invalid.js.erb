@@ -1,3 +1,0 @@
-var invalid = localStorage.getItem('invalid<%= @team.capitalize%>')
-localStorage.setItem('invalid<%= @team.capitalize%>', parseInt(invalid) + 1)
-$(document).trigger('storage-changed')
