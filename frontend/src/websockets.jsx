@@ -15,11 +15,6 @@ import {
 } from './game_actions'
 
 class Websockets extends React.Component {
-  constructor(props) {
-    super(props);
-    window._this = this
-    this.performAction = this.performAction.bind(this)
-  }
 
   componentDidMount() {
     const cable = ActionCable.createConsumer('ws://localhost:3000/cable');
