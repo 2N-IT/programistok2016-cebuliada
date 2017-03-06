@@ -34,7 +34,7 @@ $( document ).on 'turbolinks:load', ->
       else
         $("a##{field}").removeClass('disabled')
 
-  $('.teamName').off('change').on 'change', ->
+  $('.teamName').off('change').on 'keyup', ->
     $.ajax
       url: '/game/change_name'
       data:
