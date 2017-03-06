@@ -83,7 +83,7 @@ h4 {
 }
 #intro {
   background: #fff;
-  background-image: url(./../public/intro.jpg);
+  background-image: url(./../assets/intro.jpg);
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center center;
@@ -91,7 +91,7 @@ h4 {
 
 #suprise {
   background: #fff;
-  background-image: url(./../public/suprise.jpg);
+  background-image: url(./../assets/suprise.jpg);
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center center;
