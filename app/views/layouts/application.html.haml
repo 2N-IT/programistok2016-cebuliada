@@ -6,10 +6,10 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
-    %audio#introWav{:preload => "auto", :src => "/intro.wav"}
-    %audio#funnyWav{:preload => "auto", :src => "/funny.wav"}
-    %audio#valid{:preload => "auto", :src => "/valid.wav"}
-    %audio#invalid{:preload => "auto", :src => "/invalid.wav"}
+    %audio#introWav{preload: "auto", src: "/intro.wav"}
+    %audio#funnyWav{preload: "auto", src: "/funny.wav"}
+    %audio#valid{preload: "auto", src: "/valid.wav"}
+    %audio#invalid{preload: "auto", src: "/invalid.wav"}
     .container
       .well
         .row

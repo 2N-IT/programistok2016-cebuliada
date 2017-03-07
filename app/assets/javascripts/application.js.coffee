@@ -57,7 +57,7 @@ $(document).on 'turbolinks:load', ->
         value: $(this).val()
 
   $('.play-sounds').off('click').on 'click', (e) ->
-    type = this.getAttribute('data-sound-type')
+    type = $(this).attr('data-sound-type')
     audio = document.getElementById(type)
     if audio.currentTime > 0
       audio.pause()
@@ -71,7 +71,6 @@ $(document).on 'turbolinks:load', ->
     $.ajax
       url: "/answers/#{answerId}/valid"
       success: (data) ->
-        console.log('test:', data.points)
         currentScore = parseInt($('#current_score').val()) + parseInt(data.points)
         scope = $("#answer_#{answerId}")
         $('a', scope).addClass('disabled')
@@ -102,7 +101,7 @@ $(document).on 'turbolinks:load', ->
         $.ajax
           url: '/game/show_suprise'
       when 105
-        document.getElementById('introWav').play()
+        $('#introWav').play()
       when 97
-        document.getElementById('funnyWav').play()
+        $('#funnyWav').play()
 

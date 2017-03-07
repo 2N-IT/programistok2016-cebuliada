@@ -80,7 +80,7 @@ class Websockets extends React.Component {
         return document.getElementById('question-title').style.opacity = '1'
       default:
         return console.log('invalid action from controller', data.type);
-   }
+    }
   }
 
   render() {
