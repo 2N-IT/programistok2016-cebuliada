@@ -14,7 +14,7 @@ $(document).on 'turbolinks:load', ->
   localStorage.setItem('invalidBlue', 0)
 
   $('.show-question').off('click').on 'click' , ->
-    $('.assign-score, .question-item').removeClass('disabled')
+    $('.assign-score, .valid-answer').removeClass('disabled')
 
     $(this).addClass('disabled')
 
@@ -57,8 +57,6 @@ $(document).on 'turbolinks:load', ->
         value: $(this).val()
 
   $('.play-sounds').off('click').on 'click', (e) ->
-    e.preventDefault()
-    e.stopPropagation()
     type = this.getAttribute('data-sound-type')
     audio = document.getElementById(type)
     if audio.currentTime > 0
