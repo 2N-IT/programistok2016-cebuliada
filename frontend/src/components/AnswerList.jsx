@@ -5,11 +5,12 @@ const AnswerList = (props) => {
 
   return (
     <div className='col-xs-10 answers-list'>
-      <table className="text-center">
+      <table className="table text-center">
         <tbody className='answers'>
-          {props.answears.map(({id, title, points}) => {
+          {props.answears.map(({id, title, points}, index) => {
             return (
               <Answer
+                index={index + 1}
                 key={id}
                 id={id}
                 title={title}

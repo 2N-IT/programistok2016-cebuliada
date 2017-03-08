@@ -13,10 +13,20 @@ body {
 }
 
 .answers tr td {
-  opacity: 0;
   font-size: 120%;
   padding: 10px;
 }
+.answers tr td:nth-child(2) {
+  padding-left: 50px;
+}
+.answers tr td:last-child { opacity: 0; }
+.answers tr:not(.valid) td:nth-child(2) { color: black; }
+.answers tr:not(.valid) td:nth-child(2):after {
+  content: "";
+  display: block;
+  border-bottom: 5px dotted white !important;
+}
+
 .answers tr.valid td {
   opacity: 1;
 }
