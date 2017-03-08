@@ -2,7 +2,7 @@ import React from 'react';
 import ActionCable from 'actioncable';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux'
-import * as Actions from './constants'
+import * as Actions from './../constants'
 import Alert from 'react-s-alert';
 
 import {
@@ -12,7 +12,7 @@ import {
   clearInvalidAnswers,
   assignPoints,
   changeName
-} from './game_actions'
+} from './../game_actions'
 
 class Websockets extends React.Component {
 
