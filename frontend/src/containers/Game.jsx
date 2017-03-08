@@ -5,6 +5,7 @@ import { bindActionCreators } from 'redux'
 import Websockets from './../websockets'
 import AnswerList from './../components/AnswerList'
 import InvalidAnswers from './../components/InvalidAnswers'
+import TeamScore from './../components/TeamScore'
 import Score from './../components/Score'
 import Footer from './../components/Footer'
 import Alert from 'react-s-alert'
@@ -18,10 +19,9 @@ class Game extends React.Component {
       <div>
         <Websockets />
         <h1 className='text-center logo'> cebuliada </h1>
-        <Score
+        <TeamScore
           invalid={this.props.invalid}
           score={this.props.score}
-          current_score={this.props.current_score}
           team_name={this.props.team_name}
         />
         <h4 id='question-title'>{this.props.question.title}</h4>
@@ -30,6 +30,7 @@ class Game extends React.Component {
           <AnswerList answears={this.props.answers} valid_answers={this.props.valid_answers} />
           <InvalidAnswers invalid={this.props.invalid} team={'red'} />
         </div>
+        <Score current_score={this.props.current_score} />
         <Footer />
         <Alert stack={{limit: 3, beep: true, timeout: 5000}} />
       </div>
