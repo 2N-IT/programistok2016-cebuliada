@@ -34,7 +34,7 @@ visit localhost:3000/questions/1
 ## Installation - frontend part
 ```
 cd frontend
-npm install
-npm start
-open http://127.0.0.1:8888/ in new tab, for example incognito
+yarn install
+yarn start
+open http://127.0.0.1:8888/ in new tab, and play !
 ```
